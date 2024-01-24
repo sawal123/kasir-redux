@@ -38,21 +38,26 @@ const CartContainer = styled.div`
 
 const App = () => {
   const products = useSelector(state => state.product.products)
-  // const carts = useSelector(state => state.product.carts)
+  const carts = useSelector(state => state.product.carts)
   return (
     <ThemeProvider theme={theme}>
       <Header />
       <Container>
         <MenuContainer>
-          <ListMenu/>
+          <ListMenu />
         </MenuContainer>
         <ProductContainer>
-         {products.map(product=>
-             <ProductCard key={product.id} item = {product} />
+          {products.map(product =>
+            <ProductCard key={product.id} item={product} />
           )}
         </ProductContainer>
         <CartContainer>
-          <CartItem />
+          <p>
+            {carts ? `${carts.length} item in carts` : `0 item in cart`}
+          </p>
+          {carts.map(item =>
+            <CartItem name = {item.name} price = {item.price}/>
+          )}
           <CalculateBox />
         </CartContainer>
       </Container>

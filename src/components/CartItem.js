@@ -34,17 +34,17 @@ const Price = styled.div`
     text-align:center;
 `;
 
-const CartItem = () => {
+const CartItem = ({name, price}) => {
     const [count , setCount] = useState(1)
   return (
     <Cart>
-      <ItemName>Name</ItemName>
+      <ItemName>{name}</ItemName>
       <CountCountainer>
         <Counter inc />
         <CounterTotal>{count}</CounterTotal>
         <Counter desc />
       </CountCountainer>
-      <Price>23000</Price>
+      <Price>{price}</Price>
     </Cart>
   );
 };
