@@ -56,7 +56,7 @@ const App = () => {
             {carts ? `${carts.length} item in carts` : `0 item in cart`}
           </p>
           {carts.map(item =>
-            <CartItem name = {item.name} price = {item.price}/>
+            <CartItem key={item.id} item = {item} />
           )}
           <CalculateBox />
         </CartContainer>

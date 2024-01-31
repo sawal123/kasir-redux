@@ -16,10 +16,10 @@ cursor: pointer;
 
 const Counter = ({inc, dec}) => {
    if(inc){
-    return <CounterStyle>+</CounterStyle>
+    return <CounterStyle onClick={inc}>+</CounterStyle>
    }
    else{
-    return <CounterStyle>-</CounterStyle>
+    return <CounterStyle onClick={dec}>-</CounterStyle>
    }
 }
 
