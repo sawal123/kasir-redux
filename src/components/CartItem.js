@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import Counter from "./Counter";
-import { inc, dec } from "../store/actions/product";
+import { inc, dec, removeFromCart } from "../store/actions/product";
 import { useDispatch } from "react-redux";
 
 
@@ -46,7 +46,12 @@ const CartItem = ({item}) => {
     }
     const decrement =id=>{
       setCount(count -1)
-      dispatch(dec(item.id))
+      if(count > 1){
+        dispatch(dec(item.id))
+      }
+      else if(count === 1){
+        dispatch(removeFromCart(id))
+      }
     }
   return (
     <Cart>

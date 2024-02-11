@@ -19,3 +19,16 @@ export const dec = id=>{
         payload: id
     }
 }
+
+export const removeFromCart = id=>{
+    return{
+        type: "REMOVE",
+        payload: id
+    }
+}
+export const resetCart = ()=>{
+    return{
+        type: "RESET"
+    }
+}
+

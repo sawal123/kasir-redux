@@ -43,10 +43,11 @@ const productReducer = (state = initialState, action) => {
         carts: incCarts,
       };
 
-
     case "DECREMENT":
       console.log(payload);
-      const decOrignalPrice = state.products.find(item => item.id === payload).price;
+      const decOrignalPrice = state.products.find(
+        (item) => item.id === payload
+      ).price;
 
       const decCarts = state.carts.map((item) => {
         if (item.id === payload) {
@@ -62,6 +63,16 @@ const productReducer = (state = initialState, action) => {
         ...state,
         carts: decCarts,
       };
+    case "REMOVE":
+      return {
+        ...state,
+        carts: state.carts.filter((item) => item.id !== payload),
+      };
+      case "RESET":
+        return{
+          ...state,
+          carts: []
+        }
   }
 };
 
