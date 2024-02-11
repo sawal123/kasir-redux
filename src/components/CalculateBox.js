@@ -61,7 +61,6 @@ const CalculateBox = () => {
             setChange(pay-total)
         }
     }
-
     const reset=()=>{
         dispatch(resetCart())
         setChange("")
